@@ -122,9 +122,6 @@
 		      (dired-omit-mode 1)
 		      )))
 
-(load-file "~/.emacs.d/dvc-snapshot/++build/dvc-load.el")
-
-
 (add-to-list 'load-path "~/.emacs.d/epg")
 (require 'epa-file)
 (epa-file-enable)
@@ -316,7 +313,8 @@
 (require 'window-number)
 (window-number-mode)
 
-(scroll-bar-mode)
+(if (boundp 'scroll-bar-mode)
+    (scroll-bar-mode))
 
 ;;(server-start)
 (require 'org-protocol)
@@ -329,6 +327,7 @@
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'load-path "~/.emacs.d/tuareg-mode")
+(add-to-list 'load-path "~/.emacs.d/actionscript-mode.connors")
 
 (setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) auto-mode-alist))
 (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
